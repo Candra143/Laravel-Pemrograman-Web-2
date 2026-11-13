@@ -1,59 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Project - Pemrograman Web 2
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Halo! Ini adalah proyek belajar Laravel yang saya buat untuk mata kuliah Pemrograman Web 2. Proyek ini sederhana sih, cuma sistem manajemen produk, tapi lumayan buat latihan karena di sini saya coba implementasi beberapa hal sekaligus: form modal pop-up, validasi input, Eloquent ORM, dan format Rupiah di tabel.
 
-## About Laravel
+# Fitur
+Beberapa fitur yang sudah jalan di proyek ini:
+- Modal Pop-up Form — Tambah produk baru tanpa reload halaman, pakai Tailwind CSS biar tampilannya nggak terlalu polos.
+- Validasi Input — Field wajib diisi, harga dan stok harus angka. Kalau salah isi, bakal muncul pesan error.
+- Eloquent ORM & Migrations — Datanya disimpan di database lewat Eloquent, strukturnya dibuat pakai migration.
+- Format Rupiah — Harga di tabel otomatis jadi format Rp (contoh: Rp 150.000), nggak perlu ngetik manual.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Struktur File Penting
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Kalau mau ngoprek, ini file-file yang paling sering saya sentuh:
+- Controller: app/Http/Controllers/ProductController.php
+- Model: app/Models/Product.php
+- Migration: database/migrations/..._create_products_table.php
+- Routes: routes/web.php
+- View: resources/views/products/index.blade.php
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Cara Menjalankan
 
-## Learning Laravel
+Kalau mau coba di lokal, ikuti langkah berikut:
+1. Clone repo-nya:
+   bash
+   git clone https://github.com/Hamwah123/Laravel_Project_Ilham.git
+   cd Laravel_Project_Ilham
+   
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+2. Install dependency:
+   bash
+   composer install
+   npm install
+   
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Copy file .env dan generate key:
+   bash
+   cp .env.example .env
+   php artisan key:generate
+   
 
-## Laravel Sponsors
+4. Buat database baru (misalnya namanya laravel_product), lalu sesuaikan konfigurasi di .env:
+   env
+   DB_DATABASE=laravel_product
+   DB_USERNAME=root
+   DB_PASSWORD=
+   
+   (sesuaikan dengan setting MySQL di komputer kamu)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. Jalankan migrasi:
+   bash
+   php artisan migrate
+   
 
-### Premium Partners
+6. Build asset frontend:
+   bash
+   npm run dev
+   
+   Biarkan terminal ini tetap jalan selama development.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+7. Jalankan server Laravel (buka terminal baru):
+   bash
+   php artisan serve
+   
+8. Buka http://127.0.0.1:8000/products di browser. Selesai!
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Catatan
+- Kalau Tailwind-nya nggak muncul, cek lagi npm run dev masih jalan atau nggak.
+- Kalau nemu error pas migrate, biasanya karena nama database atau password di .env belum disesuaikan.
+- Proyek ini dibuat untuk keperluan belajar, jadi masih banyak yang bisa dikembangkan (edit/hapus produk, pagination, search, dll). Silakan kalau mau dijadiin referensi.
