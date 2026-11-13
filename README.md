@@ -1,3 +1,4 @@
+AUTHOR : CANDRA ANGGRIANA
 # Laravel Project - Pemrograman Web 2
 
 Halo! Ini adalah proyek belajar Laravel yang saya buat untuk mata kuliah Pemrograman Web 2. Proyek ini sederhana sih, cuma sistem manajemen produk, tapi lumayan buat latihan karena di sini saya coba implementasi beberapa hal sekaligus: form modal pop-up, validasi input, Eloquent ORM, dan format Rupiah di tabel.
@@ -23,7 +24,7 @@ Kalau mau ngoprek, ini file-file yang paling sering saya sentuh:
 Kalau mau coba di lokal, ikuti langkah berikut:
 1. Clone repo-nya:
    bash
-   git clone https://github.com/Hamwah123/Laravel_Project_Ilham.git
+   git clone (https://github.com/Candra143/Laravel-Pemrograman-Web-2)
    cd Laravel_Project_Ilham
    
 
